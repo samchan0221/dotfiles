@@ -17,6 +17,7 @@ in
   home.packages = with pkgs; [
     tmux
     zsh
+    lazygit
   ];
 
   # Let Home Manager install and manage itself.
