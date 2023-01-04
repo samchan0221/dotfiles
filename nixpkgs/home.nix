@@ -2,6 +2,7 @@
 
 let imports = [
   ./tmux.nix
+  ./zsh.nix
 ];
 in
 {
@@ -15,6 +16,7 @@ in
 
   home.packages = with pkgs; [
     tmux
+    zsh
   ];
 
   # Let Home Manager install and manage itself.
