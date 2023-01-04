@@ -3,6 +3,7 @@
 let imports = [
   ./tmux.nix
   ./zsh.nix
+  ./git.nix
 ];
 in
 {
@@ -15,6 +16,7 @@ in
   };
 
   home.packages = with pkgs; [
+    git
     tmux
     zsh
     lazygit
