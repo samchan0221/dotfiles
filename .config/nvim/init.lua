@@ -80,7 +80,7 @@ vim.cmd([[
       let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
       let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
   else
-mappings      let &t_SI = "\e[5 q"
+      let &t_SI = "\e[5 q"
       let &t_EI = "\e[2 q"
   endif
 ]])

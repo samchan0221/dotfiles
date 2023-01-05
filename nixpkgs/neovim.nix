@@ -13,8 +13,8 @@ let typescript-nvim = pkgs.vimUtils.buildVimPlugin {
 };
 in
 {
-  xdg.configFile."nvim/settings.lua".source = lib.cleanSource ../.configs/nvim/init.lua;
-  xdg.configFile."nvim/lua".source = lib.cleanSource ../.configs/nvim/lua;
+  xdg.configFile."nvim/settings.lua".source = lib.cleanSource ../.config/nvim/init.lua;
+  xdg.configFile."nvim/lua".source = lib.cleanSource ../.config/nvim/lua;
 
   programs.neovim = {
     enable = true;
