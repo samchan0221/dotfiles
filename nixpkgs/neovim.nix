@@ -18,6 +18,9 @@ in
 
   programs.neovim = {
     enable = true;
+    withPython3 = true;
+    withNodeJs = true;
+    withRuby = true;
     plugins = with pkgs.vimPlugins; [
       # lsp
       nvim-lspconfig
@@ -47,14 +50,14 @@ in
       toggleterm-nvim
       trouble-nvim
     ];
-    extraConfig = ''
-      luafile ~/.config/nvim/settings.lua
-    '';
     extraPackages = with pkgs; [
       sumneko-lua-language-server
       rnix-lsp
       nodePackages.typescript
       nodePackages.typescript-language-server
     ];
+    extraConfig = ''
+      luafile ~/.config/nvim/settings.lua
+    '';
   };
 }
