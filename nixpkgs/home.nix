@@ -4,6 +4,7 @@ let imports = [
   ./tmux.nix
   ./zsh.nix
   ./git.nix
+  ./neovim.nix
 ];
 in
 {
