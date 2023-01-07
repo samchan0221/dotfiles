@@ -15,7 +15,7 @@ let
   node2nix = pkgs.callPackage ./node2nix { };
 in
 {
-  xdg.configFile."nvim/settings.lua".source = lib.cleanSource ../.config/nvim/init.lua;
+  xdg.configFile."nvim/init.lua".source = lib.cleanSource ../.config/nvim/init.lua;
   xdg.configFile."nvim/lua".source = lib.cleanSource ../.config/nvim/lua;
 
   programs.neovim = {
@@ -62,8 +62,5 @@ in
       node2nix."@fsouza/prettierd"
     ];
 
-    extraConfig = ''
-      luafile ~/.config/nvim/settings.lua
-    '';
   };
 }
