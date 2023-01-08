@@ -10,4 +10,4 @@ endif
 
 all: .check-env
 	nix build --no-link --experimental-features 'nix-command flakes' .#homeConfigurations.$(SYSTEM).activationPackage 
-	home-manager switch --flake '.#$(SYSTEM)' --experimental-features 'nix-command flakes'
+	home-manager switch --flake '.#$(SYSTEM)' --experimental-features 'nix-command flakes' -b backup
