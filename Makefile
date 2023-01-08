@@ -1,13 +1,9 @@
 .DEFAULT_GOAL := all
-SYSTEM ?=
+UNAME ?= $(shell uname | tr '[:upper:]' '[:lower:]')
 
-.PHONY: check-env, setup
+.PHONY: all
 
-.check-env:
-ifndef SYSTEM
-	$(error SYSTEM is undefined)
-endif
-
-all: .check-env
-	nix build --no-link --experimental-features 'nix-command flakes' .#homeConfigurations.$(SYSTEM).activationPackage 
-	home-manager switch --flake '.#$(SYSTEM)' --experimental-features 'nix-command flakes' -b backup
+all:
+	echo $(UNAME)
+	nix build --no-link --experimental-features 'nix-command flakes' .#homeConfigurations.$(UNAME).activationPackage 
+	home-manager switch --flake '.#$(UNAME)' --experimental-features 'nix-command flakes' -b backup

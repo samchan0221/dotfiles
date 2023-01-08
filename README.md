@@ -3,30 +3,15 @@
 
 # Apply config
 ## Using nix flake
-- WSL
 ```sh
-nix build --no-link --experimental-features 'nix-command flakes' \
-  'github:samchan0221/dotfiles#homeConfigurations.wsl.activationPackage'
+nix build --no-link --experimental-features 'nix-command flakes' --refresh \
+  "github:samchan0221/dotfiles#homeConfigurations.$(uname | tr '[:upper:]' '[:lower:]').activationPackage"
 ```
 ```sh
-$(nix path-info --experimental-features 'nix-command flakes' \
-  'github:samchan0221/dotfiles#homeConfigurations.wsl.activationPackage)/activate'
-```
-- MacOS
-```sh
-nix build --no-link --experimental-features 'nix-command flakes' \
-  'github:samchan0221/dotfiles#homeConfigurations.macOS.activationPackage'
-```
-```sh
-$(nix path-info --experimental-features 'nix-command flakes' \
-  'github:samchan0221/dotfiles#homeConfigurations.macOS.activationPackage)/activate'
+$(nix path-info --experimental-features 'nix-command flakes' --refresh \
+  "github:samchan0221/dotfiles#homeConfigurations.$(uname | tr '[:upper:]' '[:lower:]').activationPackage")/activate
 ```
 ## Cloning the repo
-- WSL
 ```sh
-make SYSTEM=wsl
-```
-- MacOS
-```sh
-make SYSTEM=macOS
+make
 ```
