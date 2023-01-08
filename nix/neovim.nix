@@ -51,6 +51,10 @@ in
       lualine-nvim
       toggleterm-nvim
       trouble-nvim
+      comment-nvim
+      vim-fugitive
+      vim-surround
+      gitsigns-nvim
     ];
 
     extraPackages = [
