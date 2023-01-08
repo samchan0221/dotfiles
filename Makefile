@@ -1,19 +1,13 @@
-NIXPKGS_SRC ?= https://github.com/NixOS/nixpkgs/archive/release-22.11.tar.gz
-HOME_MANAGER_SRC ?= https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz
+.DEFAULT_GOAL := all
+SYSTEM ?=
 
-.PHONY: link, unlink, setup
+.PHONY: check-env, setup
 
-link:
-	ln -s ${PWD}/nixpkgs ~/.config/nixpkgs
+.check-env:
+ifndef SYSTEM
+	$(error SYSTEM is undefined)
+endif
 
-unlink:
-	unlink ~/.config/nixpkg
-
-setup:
-	nix-channel --add $(NIXPKGS_SRC) nixpkgs
-	nix-channel --add $(HOME_MANAGER_SRC) home-manager
-	nix-channel --update
-	nix-shell '<home-manager>' -A install
-	mv ~/.config/nixpkgs ~/.config/nixpkgs.backup || true
-	make link
-	home-manager switch -b backup
+all: .check-env
+	nix build --no-link --experimental-features 'nix-command flakes' .#homeConfigurations.$(SYSTEM).activationPackage 
+	home-manager switch --flake '.#$(SYSTEM)' --experimental-features 'nix-command flakes'

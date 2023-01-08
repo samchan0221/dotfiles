@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, specialArgs, ... }:
 
 let imports = [
   ./tmux.nix
@@ -11,9 +11,9 @@ in
   inherit imports;
 
   home = {
-    username = "samchan";
-    homeDirectory = "/Users/samchan";
-    stateVersion = "22.05";
+    username = specialArgs.username;
+    homeDirectory = specialArgs.homeDirectory;
+    stateVersion = "22.11";
   };
 
   home.packages = with pkgs; [
