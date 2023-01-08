@@ -7,6 +7,8 @@
 ```sh
 nix build --no-link --experimental-features 'nix-command flakes' \
   'github:samchan0221/dotfiles#homeConfigurations.wsl.activationPackage'
+```
+```sh
 $(nix path-info --experimental-features 'nix-command flakes' \
   'github:samchan0221/dotfiles#homeConfigurations.wsl.activationPackage)/activate'
 ```
@@ -14,6 +16,8 @@ $(nix path-info --experimental-features 'nix-command flakes' \
 ```sh
 nix build --no-link --experimental-features 'nix-command flakes' \
   'github:samchan0221/dotfiles#homeConfigurations.macOS.activationPackage'
+```
+```sh
 $(nix path-info --experimental-features 'nix-command flakes' \
   'github:samchan0221/dotfiles#homeConfigurations.macOS.activationPackage)/activate'
 ```

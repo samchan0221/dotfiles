@@ -22,7 +22,7 @@
           inherit pkgs;
 
           modules = [
-            ./nixpkgs/home.nix
+            ./nix/home.nix
           ];
 
           extraSpecialArgs = {
@@ -40,7 +40,7 @@
           inherit pkgs;
 
           modules = [
-            ./nixpkgs/home.nix
+            ./nix/home.nix
           ];
 
           extraSpecialArgs = {
