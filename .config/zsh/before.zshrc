@@ -12,6 +12,8 @@ PATH=$PATH:$HOME/.poetry/bin
 CLOUDSDK_PYTHON=/usr/bin/python
 XDG_CONFIG_HOME=$HOME/.config
 
+EDITOR=nvim
+
 # aliases
 alias ls="ls -p -G"
 alias la="ls -A"
