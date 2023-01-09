@@ -1,11 +1,13 @@
 { config, pkgs, specialArgs, ... }:
 
-let imports = [
-  ./tmux.nix
-  ./zsh.nix
-  ./git.nix
-  ./neovim.nix
-];
+let
+  imports = [
+    ./tmux.nix
+    ./zsh.nix
+    ./git.nix
+    ./neovim.nix
+  ];
+  extraPackages = if specialArgs ? packages then specialArgs.packages pkgs else [ ];
 in
 {
   inherit imports;
@@ -21,7 +23,7 @@ in
     tmux
     zsh
     lazygit
-  ];
+  ] ++ extraPackages;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

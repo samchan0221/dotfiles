@@ -46,6 +46,9 @@
           extraSpecialArgs = {
             username = "samchan";
             homeDirectory = "/Users/samchan";
+            packages = pkgs: with pkgs;[
+              cocoapods
+            ];
           };
         };
     };
