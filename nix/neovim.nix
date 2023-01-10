@@ -71,6 +71,7 @@ in
     ];
 
     extraPackages = [
+      pkgs.rust-analyzer
       pkgs.sumneko-lua-language-server
       pkgs.rnix-lsp
       pkgs.nodePackages.typescript

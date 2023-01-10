@@ -23,6 +23,7 @@ in
     tmux
     zsh
     lazygit
+    cargo
   ] ++ extraPackages;
 
   # Let Home Manager install and manage itself.

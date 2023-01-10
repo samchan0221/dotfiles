@@ -79,6 +79,11 @@ nvim_lsp.rnix.setup {
   on_attach = on_attach_default,
 }
 
+nvim_lsp.rust_analyzer.setup {
+  capabilities = default_capabilities,
+  on_attach = on_attach_default,
+}
+
 -- format on save
 vim.api.nvim_exec([[
 augroup FormatAutogroup
