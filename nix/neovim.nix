@@ -12,6 +12,18 @@ let
       echo "[DEBUG] typescript-nvim skip build phase"
     '';
   };
+  rust-tools-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "rust-tools.nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "simrat39";
+      repo = "rust-tools.nvim";
+      rev = "df584e84393ef255f5b8cbd709677d6a3a5bf42f";
+      sha256 = "sha256-+/kK6MU2EiSBFbfqQJwLkJICXZpf8oiShbcvsls3V8A=";
+    };
+    buildPhase = ''
+      echo "[DEBUG] rust-tools-nvim skip build phase"
+    '';
+  };
   node2nix = pkgs.callPackage ./node2nix { };
 in
 {
