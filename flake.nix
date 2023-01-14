@@ -9,14 +9,21 @@
       url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay/stable";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, rust-overlay, flake-utils, ... }:
     {
       homeConfigurations.linux =
         let
-          system = "x86_64-linux";
-          pkgs = nixpkgs.legacyPackages.${system};
+          overlays = [ (import rust-overlay) ];
+          pkgs = import nixpkgs
+            {
+              system = "x86_64-linux";
+              inherit overlays;
+            };
         in
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;

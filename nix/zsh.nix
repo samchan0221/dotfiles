@@ -14,7 +14,6 @@
       "z"
       "yarn"
       "poetry"
-      "rust"
       "vi-mode"
     ];
     theme = "afowler";
