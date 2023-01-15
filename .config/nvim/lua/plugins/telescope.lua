@@ -14,6 +14,7 @@ require 'telescope'.setup {
   git_status = { initial_mode = "normal" },
   pickers = {
     live_grep = {
+      -- https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#common-options
       additional_args = function()
         return { "--hidden" }
       end
