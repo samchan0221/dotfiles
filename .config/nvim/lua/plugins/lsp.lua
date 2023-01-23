@@ -82,6 +82,16 @@ nvim_lsp.rust_analyzer.setup {
   on_attach = on_attach_default,
 }
 
+nvim_lsp.pyright.setup {
+  capabilities = default_capabilities,
+  on_attach = on_attach_default,
+}
+
+nvim_lsp.cssls.setup {
+  capabilities = default_capabilities,
+  on_attach = on_attach_default,
+}
+
 -- format on save
 vim.api.nvim_exec([[
 augroup FormatAutogroup

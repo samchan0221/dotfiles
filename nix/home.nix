@@ -25,6 +25,7 @@ in
     zsh
     lazygit
     rust
+    python39
   ] ++ extraPackages;
 
   # Let Home Manager install and manage itself.

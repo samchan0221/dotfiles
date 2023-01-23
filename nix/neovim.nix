@@ -76,6 +76,8 @@ in
       pkgs.nodePackages.typescript
       pkgs.nodePackages.typescript-language-server
       pkgs.nodePackages.eslint_d
+      pkgs.nodePackages.vscode-langservers-extracted
+      pkgs.vscode-extensions.ms-pyright.pyright
       node2nix."@fsouza/prettierd"
     ];
 
