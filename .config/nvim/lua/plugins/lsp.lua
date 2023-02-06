@@ -2,6 +2,7 @@ local nvim_lsp = require('lspconfig')
 local null_ls = require("null-ls")
 local typescript_nvim = require('typescript')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
+local utils = require('utils')
 
 local default_capabilities = cmp_nvim_lsp.default_capabilities()
 
@@ -24,12 +25,13 @@ local on_attach_default = function(_, bufnr)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
 end
 
+local has_eslint_config = true
 null_ls.setup {
   sources = {
     -- typescript
     null_ls.builtins.formatting.prettierd,
-    null_ls.builtins.diagnostics.eslint_d,
-    null_ls.builtins.code_actions.eslint_d,
+    has_eslint_config and null_ls.builtins.diagnostics.eslint_d,
+    has_eslint_config and null_ls.builtins.code_actions.eslint_d,
   }
 }
 
