@@ -2,6 +2,7 @@ local nvim_lsp = require('lspconfig')
 local null_ls = require("null-ls")
 local typescript_nvim = require('typescript')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
+local rust_tools = require('rust-tools')
 local utils = require('utils')
 
 local default_capabilities = cmp_nvim_lsp.default_capabilities()
@@ -62,6 +63,16 @@ typescript_nvim.setup {
   },
 }
 
+rust_tools.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      on_attach_default(_, bufnr)
+      vim.keymap.set("n", "K", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
+      vim.keymap.set("n", "<space>ca", rust_tools.code_action_group.code_action_group, { buffer = bufnr })
+    end,
+  },
+})
+
 nvim_lsp.sumneko_lua.setup {
   capabilities = default_capabilities,
   on_attach = on_attach_default,
@@ -79,17 +90,17 @@ nvim_lsp.rnix.setup {
   on_attach = on_attach_default,
 }
 
-nvim_lsp.rust_analyzer.setup {
-  capabilities = default_capabilities,
-  on_attach = on_attach_default,
-}
-
 nvim_lsp.pyright.setup {
   capabilities = default_capabilities,
   on_attach = on_attach_default,
 }
 
 nvim_lsp.cssls.setup {
+  capabilities = default_capabilities,
+  on_attach = on_attach_default,
+}
+
+nvim_lsp.hls.setup {
   capabilities = default_capabilities,
   on_attach = on_attach_default,
 }

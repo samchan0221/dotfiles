@@ -40,6 +40,7 @@ in
       nvim-lspconfig
       null-ls-nvim
       typescript-nvim
+      rust-tools-nvim
 
       # treesitter
       nvim-treesitter.withAllGrammars
