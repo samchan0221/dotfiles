@@ -5,7 +5,7 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "jose-elias-alvarez";
       repo = "typescript.nvim";
-      rev = "f66d4472606cb24615dfb7dbc6557e779d177624";
+      rev = "71d2cf67b5ed120a0e31b2c8adb210dd2834242f";
       sha256 = "sha256-PHVY5NJbOGvY9p0F0QNSfMKmAWdqjw1RB0Vspq88qMI=";
     };
     buildPhase = ''
