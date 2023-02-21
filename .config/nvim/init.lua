@@ -22,9 +22,7 @@ vim.opt.shell = 'zsh'
 vim.opt.backupskip = '/tmp/*,/private/tmp/*'
 vim.opt.mouse = ''
 vim.cmd('syntax enable')
--- vim.cmd('set t_Co=256')
-vim.g.dracula_colorterm = 0
-vim.g.dracula_italic = 0
+vim.cmd('set t_Co=256')
 
 -- Suppress appending <PasteStart> and <PasteEnd> when pasting
 vim.cmd('set t_BE=')
@@ -99,9 +97,7 @@ vim.cmd('autocmd FileType yaml setlocal shiftwidth=2 tabstop=2')
 
 -- Syntax theme
 vim.cmd('set t_Co=256')
-vim.cmd([[
-  colorscheme dracula
-]])
+
 
 -- After
 require('plugins.nvim-tree')
@@ -113,4 +109,5 @@ require('plugins.cmp')
 require('plugins.toggleterm')
 require('plugins.comment')
 require('plugins.gitsigns')
+require('plugins.dracula')
 require('keymaps')

@@ -69,6 +69,7 @@ in
       vim-fugitive
       vim-surround
       gitsigns-nvim
+      dracula-nvim
     ];
 
     extraPackages = [
