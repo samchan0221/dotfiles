@@ -59,6 +59,8 @@ in
       cmp-buffer
       cmp-path
       cmp-cmdline
+      cmp-vsnip
+      vim-vsnip
       nvim-cmp
 
       # misc
