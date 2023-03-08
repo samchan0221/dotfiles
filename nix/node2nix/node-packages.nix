@@ -31,13 +31,13 @@ let
         sha512 = "GyQkE8M32pULhQk7Sko5raoIbPalAk90ICG+An4fq6fCsFHsP6fB2K46WGXVdoJpy4SGMnZ/EKbo123fZJomWg==";
       };
     };
-    "prettier-2.8.1" = {
+    "prettier-2.8.4" = {
       name = "prettier";
       packageName = "prettier";
-      version = "2.8.1";
+      version = "2.8.4";
       src = fetchurl {
-        url = "https://registry.npmjs.org/prettier/-/prettier-2.8.1.tgz";
-        sha512 = "lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==";
+        url = "https://registry.npmjs.org/prettier/-/prettier-2.8.4.tgz";
+        sha512 = "vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==";
       };
     };
     "supports-color-8.1.1" = {
@@ -49,22 +49,76 @@ let
         sha512 = "MpUEN2OodtUzxvKQl72cUF7RQ5EiHsGvSsVG0ia9c5RbWGL2CI4C7EpPS8UTBIplnlzZiNuV56w+FuNxy3ty2Q==";
       };
     };
+    "vscode-jsonrpc-8.1.0" = {
+      name = "vscode-jsonrpc";
+      packageName = "vscode-jsonrpc";
+      version = "8.1.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/vscode-jsonrpc/-/vscode-jsonrpc-8.1.0.tgz";
+        sha512 = "6TDy/abTQk+zDGYazgbIPc+4JoXdwC8NHU9Pbn4UJP1fehUyZmM4RHp5IthX7A6L5KS30PRui+j+tbbMMMafdw==";
+      };
+    };
+    "vscode-languageserver-8.1.0" = {
+      name = "vscode-languageserver";
+      packageName = "vscode-languageserver";
+      version = "8.1.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/vscode-languageserver/-/vscode-languageserver-8.1.0.tgz";
+        sha512 = "eUt8f1z2N2IEUDBsKaNapkz7jl5QpskN2Y0G01T/ItMxBxw1fJwvtySGB9QMecatne8jFIWJGWI61dWjyTLQsw==";
+      };
+    };
+    "vscode-languageserver-protocol-3.17.3" = {
+      name = "vscode-languageserver-protocol";
+      packageName = "vscode-languageserver-protocol";
+      version = "3.17.3";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/vscode-languageserver-protocol/-/vscode-languageserver-protocol-3.17.3.tgz";
+        sha512 = "924/h0AqsMtA5yK22GgMtCYiMdCOtWTSGgUOkgEDX+wk2b0x4sAfLiO4NxBxqbiVtz7K7/1/RgVrVI0NClZwqA==";
+      };
+    };
+    "vscode-languageserver-textdocument-1.0.9" = {
+      name = "vscode-languageserver-textdocument";
+      packageName = "vscode-languageserver-textdocument";
+      version = "1.0.9";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/vscode-languageserver-textdocument/-/vscode-languageserver-textdocument-1.0.9.tgz";
+        sha512 = "NPfHVGFW2/fQEWHspr8x3PXhRgtFbuDZdl7p6ifuN3M7nk2Yjf5POr/NfDBuAiQG88DehDyJ7nGOT+p+edEtbw==";
+      };
+    };
+    "vscode-languageserver-types-3.17.3" = {
+      name = "vscode-languageserver-types";
+      packageName = "vscode-languageserver-types";
+      version = "3.17.3";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/vscode-languageserver-types/-/vscode-languageserver-types-3.17.3.tgz";
+        sha512 = "SYU4z1dL0PyIMd4Vj8YOqFvHu7Hz/enbWtpfnVbJHU4Nd1YNYx8u0ennumc6h48GQNeOLxmwySmnADouT/AuZA==";
+      };
+    };
+    "yaml-2.2.1" = {
+      name = "yaml";
+      packageName = "yaml";
+      version = "2.2.1";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/yaml/-/yaml-2.2.1.tgz";
+        sha512 = "e0WHiYql7+9wr4cWMx3TVQrNwejKaEe7/rHNmQmqRjazfOP5W8PB6Jpebb5o6fIapbz9o9+2ipcaTM2ZwDI6lw==";
+      };
+    };
   };
 in
 {
   "@fsouza/prettierd" = nodeEnv.buildNodePackage {
     name = "_at_fsouza_slash_prettierd";
     packageName = "@fsouza/prettierd";
-    version = "0.23.2";
+    version = "0.23.3";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@fsouza/prettierd/-/prettierd-0.23.2.tgz";
-      sha512 = "0kADmwDO3/wxu71vAzer6OvtNvMQfXpUU0C+ttkMvSWXzu257jsJRZJKUzbondk1SXvD8cLQOulwAB1NoG6H5g==";
+      url = "https://registry.npmjs.org/@fsouza/prettierd/-/prettierd-0.23.3.tgz";
+      sha512 = "O253Z26eX0u2mwVkLQVIOO8+ll69kHGLdzw9P/LWd9OUIs8v4GnL5av4vfahpqYiFdVXnVGBcJwhFSyUJ3eFLg==";
     };
     dependencies = [
       sources."core_d-5.0.1"
       sources."has-flag-4.0.0"
       sources."nanolru-1.0.0"
-      sources."prettier-2.8.1"
+      sources."prettier-2.8.4"
       sources."supports-color-8.1.1"
     ];
     buildInputs = globalBuildInputs;
@@ -72,6 +126,32 @@ in
       description = "prettier, as a daemon";
       homepage = "https://github.com/fsouza/prettierd";
       license = "ISC";
+    };
+    production = true;
+    bypassCache = true;
+    reconstructLock = true;
+  };
+  "@microsoft/compose-language-service" = nodeEnv.buildNodePackage {
+    name = "_at_microsoft_slash_compose-language-service";
+    packageName = "@microsoft/compose-language-service";
+    version = "0.1.3";
+    src = fetchurl {
+      url = "https://registry.npmjs.org/@microsoft/compose-language-service/-/compose-language-service-0.1.3.tgz";
+      sha512 = "2ejg8I/7P8Mb4uGsLKZ+bJkQsq95wMyF/mino3TqpB6+hoi5OaeL1ozCfm4GQhKDkC/TGrhljGxXtgwA5G2+7g==";
+    };
+    dependencies = [
+      sources."vscode-jsonrpc-8.1.0"
+      sources."vscode-languageserver-8.1.0"
+      sources."vscode-languageserver-protocol-3.17.3"
+      sources."vscode-languageserver-textdocument-1.0.9"
+      sources."vscode-languageserver-types-3.17.3"
+      sources."yaml-2.2.1"
+    ];
+    buildInputs = globalBuildInputs;
+    meta = {
+      description = "Language service for Docker Compose documents";
+      homepage = "https://github.com/microsoft/compose-language-service/blob/main/README.md";
+      license = "See LICENSE in the project root for license information.";
     };
     production = true;
     bypassCache = true;

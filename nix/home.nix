@@ -27,6 +27,7 @@ in
     lazygit
     rust
     python39
+    nodePackages.node2nix
   ] ++ extraPackages;
 
   # Let Home Manager install and manage itself.
