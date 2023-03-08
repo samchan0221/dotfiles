@@ -6,6 +6,7 @@ let
     ./zsh.nix
     ./git.nix
     ./neovim.nix
+    ./lazygit.nix
   ];
   extraPackages = if specialArgs ? packages then specialArgs.packages pkgs else [ ];
   rust = import ./rust.nix pkgs;
