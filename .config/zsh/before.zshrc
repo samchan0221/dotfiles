@@ -20,6 +20,3 @@ alias la="ls -A"
 alias ll="ls -l"
 alias lla="ll -A"
 alias lag="lazygit"
-
-# nix link
-source $HOME/.nix-profile/etc/profile.d/nix.sh
