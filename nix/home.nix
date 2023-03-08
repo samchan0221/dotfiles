@@ -27,6 +27,7 @@ in
     lazygit
     rust
     python39
+    ripgrep
     nodePackages.node2nix
   ] ++ extraPackages;
 
