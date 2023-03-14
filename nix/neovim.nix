@@ -24,6 +24,15 @@ let
       echo "[DEBUG] rust-tools-nvim skip build phase"
     '';
   };
+  nx-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "nx.nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "Equilibris";
+      repo = "nx.nvim";
+      rev = "4ff337ff03eb17c8ac3e0e8fe784e68ea8a56763";
+      sha256 = "sha256-+/kK6MU2EiSBFbfqQJwLkJICXZpf8oiShbcvsls3V8A=";
+    };
+  };
   node2nix = pkgs.callPackage ./node2nix { };
 in
 {

@@ -25,11 +25,11 @@ in
     tmux
     zsh
     lazygit
-    rust
     python39
     nodejs-16_x
     ripgrep
     nodePackages.node2nix
+    nodePackages.pnpm
   ] ++ extraPackages;
 
   # Let Home Manager install and manage itself.
