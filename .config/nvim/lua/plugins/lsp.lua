@@ -110,6 +110,12 @@ nvim_lsp.docker_compose_language_service.setup {
   on_attach = on_attach_default,
 }
 
+nvim_lsp.terraformls.setup {
+  capabilities = default_capabilities,
+  on_attach = on_attach_default,
+}
+
+
 -- format on save
 vim.api.nvim_exec([[
 augroup FormatAutogroup
