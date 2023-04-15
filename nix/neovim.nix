@@ -72,6 +72,9 @@ in
       vim-vsnip
       nvim-cmp
 
+      # magic
+      copilot-vim
+
       # misc
       lualine-nvim
       toggleterm-nvim
