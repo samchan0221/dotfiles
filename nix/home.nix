@@ -28,17 +28,18 @@ in
     tmux
     zsh
     lazygit
-    python39
-    nodejs-16_x
     ripgrep
-    nodePackages.node2nix
-    nodePackages.pnpm
     gcloudPkgs
     kubernetes-helm
-    specialArgs.unstable.terraform
     terraform-ls
-    wget
-    imagemagick
+    # rust
+    python39
+    haskellPackages.haskell-language-server
+    neofetch
+    deno
+    valgrind
+    clang
+    lld
   ] ++ extraPackages;
 
   # Let Home Manager install and manage itself.
