@@ -9,9 +9,6 @@ let
     ./neovim
   ];
   extraPackages = if specialArgs ? packages then specialArgs.packages pkgs else [ ];
-  gcloudPkgs = pkgs.google-cloud-sdk.withExtraComponents [
-    pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
-  ];
   rust = import ./rust.nix pkgs;
 in
 {
@@ -28,13 +25,9 @@ in
     tmux
     zsh
     lazygit
-    ripgrep
-    gcloudPkgs
-    kubernetes-helm
-    terraform-ls
-    # rust
     python311
     haskellPackages.haskell-language-server
+    terraform-ls
     neofetch
     deno
     poetry
