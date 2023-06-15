@@ -33,11 +33,24 @@ let
       sha256 = "sha256-+/kK6MU2EiSBFbfqQJwLkJICXZpf8oiShbcvsls3V8A=";
     };
   };
-  node2nix = pkgs.callPackage ./node2nix { };
+  telescope-fzf-native-nvim-prebuilt = pkgs.vimUtils.buildVimPlugin
+    {
+      name = "telescope-fzf-native-nvim-prebuilt";
+      src = pkgs.fetchFromGitHub {
+        owner = "nvim-telescope";
+        repo = "telescope-fzf-native.nvim";
+        rev = "9bc8237565ded606e6c366a71c64c0af25cd7a50";
+        sha256 = "sha256-en1SBdM1ZLQNa2hCDnQwaZsFUfQ334z2X664aUwftjw=";
+      };
+      buildPhase = ''
+        make
+      '';
+    };
+  node2nix = pkgs.callPackage ../node2nix { };
 in
 {
-  xdg.configFile."nvim/init.lua".source = lib.cleanSource ../.config/nvim/init.lua;
-  xdg.configFile."nvim/lua".source = lib.cleanSource ../.config/nvim/lua;
+  xdg.configFile."nvim/init.lua".source = lib.cleanSource ../../.config/nvim/init.lua;
+  xdg.configFile."nvim/lua".source = lib.cleanSource ../../.config/nvim/lua;
 
   programs.neovim = {
     enable = true;
@@ -58,6 +71,7 @@ in
       # telescope
       plenary-nvim
       telescope-nvim
+      telescope-fzf-native-nvim-prebuilt
 
       # nvim-tree
       nvim-web-devicons

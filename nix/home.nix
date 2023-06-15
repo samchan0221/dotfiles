@@ -5,8 +5,8 @@ let
     ./tmux.nix
     ./zsh.nix
     ./git.nix
-    ./neovim.nix
     ./lazygit.nix
+    ./neovim
   ];
   extraPackages = if specialArgs ? packages then specialArgs.packages pkgs else [ ];
   gcloudPkgs = pkgs.google-cloud-sdk.withExtraComponents [
@@ -33,10 +33,11 @@ in
     kubernetes-helm
     terraform-ls
     # rust
-    python39
+    python311
     haskellPackages.haskell-language-server
     neofetch
     deno
+    poetry
     valgrind
     clang
     lld

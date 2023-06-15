@@ -124,6 +124,6 @@ nvim_lsp.terraformls.setup {
 vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.ts,*.tsx,*.lua,*.rs,*.json,*.yaml,*.yml,*.cs,*.nix lua vim.lsp.buf.format({}, 5000)
+  autocmd BufWritePost *.ts,*.tsx,*.lua,*.rs,*.json,*.yaml,*.yml,*.cs,*.nix,*.js lua vim.lsp.buf.format({}, 5000)
 augroup END
 ]], true)
