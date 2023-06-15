@@ -34,6 +34,7 @@ in
     valgrind
     clang
     lld
+    ripgrep
   ] ++ extraPackages;
 
   # Let Home Manager install and manage itself.
