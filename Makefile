@@ -8,6 +8,12 @@ NC=\033[0m
 
 all:
 	@echo "$(LIGHT_GREEN)[DEBUG] Building home-manager...$(NC)"
-	nix build --no-link --experimental-features 'nix-command flakes' .#homeConfigurations.$(UNAME).activationPackage 
+	make build
 	@echo "$(LIGHT_GREEN)[DEBUG] Switching config...$(NC)"
-	home-manager switch --flake '.#$(UNAME)' --experimental-features 'nix-command flakes' -b backup
+	make switch
+
+build:
+	nix build --no-link --experimental-features 'nix-command flakes' .#homeConfigurations.$(UNAME).activationPackage 
+
+switch:
+	$(shell nix path-info --refresh .#homeConfigurations.darwin.activationPackage)/activate
