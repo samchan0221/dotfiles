@@ -3,13 +3,16 @@
 
   inputs = {
     nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-23.05";
+    };
+    nixpkgs-2211 = {
       url = "github:nixos/nixpkgs/nixos-22.11";
     };
     nixpkgs-unstable = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-22.11";
+      url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rust-overlay = {
@@ -17,7 +20,7 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, rust-overlay, flake-utils, ... }:
+  outputs = { nixpkgs, nixpkgs-2211, nixpkgs-unstable, home-manager, rust-overlay, flake-utils, ... }:
     {
       homeConfigurations.linux =
         let
@@ -45,6 +48,7 @@
         let
           system = "aarch64-darwin";
           pkgs = nixpkgs.legacyPackages.${system};
+          pkgs-2211 = nixpkgs-2211.legacyPackages.${system};
           pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
         in
         home-manager.lib.homeManagerConfiguration {
@@ -61,6 +65,7 @@
               cocoapods
             ];
             unstable = pkgs-unstable;
+            pkgs-2211 = pkgs-2211;
           };
         };
     };

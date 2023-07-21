@@ -31,7 +31,6 @@ in
     neofetch
     deno
     poetry
-    valgrind
     clang
     lld
     ripgrep
