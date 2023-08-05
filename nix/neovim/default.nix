@@ -1,6 +1,5 @@
-{ config, pkgs-2211, lib, ... }:
+{ config, pkgs, pkgs-2211, lib, ... }:
 let
-  pkgs = pkgs-2211;
   typescript-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "typescript.nvim";
     src = pkgs.fetchFromGitHub {

@@ -49,10 +49,10 @@ typescript_nvim.setup {
       client.server_capabilities.documentRangeFormattingProvider = false
 
       vim.lsp.handlers["textDocument/publishDiagnostics"] =
-      vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        -- delay update diagnostics
-        update_in_insert = false
-      })
+          vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+            -- delay update diagnostics
+            update_in_insert = false
+          })
 
       on_attach_default()
 
@@ -73,16 +73,27 @@ rust_tools.setup({
   },
 })
 
-nvim_lsp.sumneko_lua.setup {
-  capabilities = default_capabilities,
-  on_attach = on_attach_default,
+nvim_lsp.lua_ls.setup {
   settings = {
     Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
       diagnostics = {
-        globals = { 'vim' }
-      }
-    }
-  }
+        -- Get the language server to recognize the `vim` global
+        globals = { 'vim' },
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
 }
 
 nvim_lsp.rnix.setup {
