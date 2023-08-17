@@ -7,6 +7,6 @@ else
   PS1="[in-nix] $PS1"
 fi
 
-source ~/.nix-profile/etc/profile.d/nix-daemon.sh
+# source ~/.nix-profile/etc/profile.d/nix-daemon.sh
 
 
