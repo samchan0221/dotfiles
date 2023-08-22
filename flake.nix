@@ -21,6 +21,9 @@
   };
 
   outputs = { nixpkgs, nixpkgs-2211, nixpkgs-unstable, home-manager, rust-overlay, flake-utils, ... }:
+    let
+      nixpkgs-2305 = nixpkgs;
+    in
     {
       homeConfigurations.linux =
         let
@@ -47,25 +50,27 @@
       homeConfigurations.darwin =
         let
           system = "aarch64-darwin";
-          pkgs = nixpkgs.legacyPackages.${system};
-          pkgs-2211 = nixpkgs-2211.legacyPackages.${system};
-          pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+          nixpkgs = {
+            "23.05" = nixpkgs-2305.legacyPackages.${system};
+            "22.11" = nixpkgs-2211.legacyPackages.${system};
+            unstable = nixpkgs-unstable.legacyPackages.${system};
+          };
         in
         home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          pkgs = nixpkgs."23.05"; # pkgs for home-manager itself (mainly std-env)
 
           modules = [
             ./nix/home.nix
           ];
 
           extraSpecialArgs = {
+            inherit nixpkgs;
             username = "samchan";
             homeDirectory = "/Users/samchan";
-            packages = pkgs: with pkgs;[
-              cocoapods
+            majorVersion = "23.05";
+            extraPackages = [
+              nixpkgs."23.05".cocoapods
             ];
-            unstable = pkgs-unstable;
-            pkgs-2211 = pkgs-2211;
           };
         };
     };

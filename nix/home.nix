@@ -1,4 +1,4 @@
-{ config, pkgs, specialArgs, ... }:
+{ config, specialArgs, ... }:
 
 let
   imports = [
@@ -8,8 +8,7 @@ let
     ./lazygit.nix
     ./neovim
   ];
-  extraPackages = if specialArgs ? packages then specialArgs.packages pkgs else [ ];
-  rust = import ./rust.nix pkgs;
+  rust = import ./rust.nix specialArgs.nixpkgs."23.05";
 in
 {
   inherit imports;
@@ -20,7 +19,7 @@ in
     stateVersion = "22.11";
   };
 
-  home.packages = with pkgs; [
+  home.packages = with specialArgs.nixpkgs.${specialArgs.majorVersion}; [
     git
     tmux
     zsh
@@ -34,7 +33,7 @@ in
     clang
     lld
     ripgrep
-  ] ++ extraPackages;
+  ] ++ specialArgs.extraPackages;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
