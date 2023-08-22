@@ -6,7 +6,7 @@ let
     ./zsh.nix
     ./git.nix
     ./lazygit.nix
-    ./neovim
+    ./neovim.nix
   ];
   rust = import ./rust.nix specialArgs.nixpkgs."23.05";
 in
@@ -37,5 +37,4 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
 }

@@ -1,4 +1,5 @@
-{ config, pkgs, pkgs-2211, lib, ... }:
+{ config, pkgs, specialArgs, lib, ... }:
+with specialArgs.utils;
 let
   typescript-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "typescript.nvim";
@@ -49,8 +50,8 @@ let
   node2nix = pkgs.callPackage ../node2nix { };
 in
 {
-  xdg.configFile."nvim/init.lua".source = lib.cleanSource ../../.config/nvim/init.lua;
-  xdg.configFile."nvim/lua".source = lib.cleanSource ../../.config/nvim/lua;
+  xdg.configFile."nvim/init.lua".source = lib.cleanSource (mkConfigPath /nvim/init.lua);
+  xdg.configFile."nvim/lua".source = lib.cleanSource (mkConfigPath /nvim/lua);
 
   programs.neovim = {
     enable = true;

@@ -38,7 +38,7 @@
           inherit pkgs;
 
           modules = [
-            ./nix/home.nix
+            ./nix/home-manager
           ];
 
           extraSpecialArgs = {
@@ -60,7 +60,7 @@
           pkgs = nixpkgs."23.05"; # pkgs for home-manager itself (mainly std-env)
 
           modules = [
-            ./nix/home.nix
+            ./nix/home-manager
           ];
 
           extraSpecialArgs = {
@@ -71,6 +71,9 @@
             extraPackages = [
               nixpkgs."23.05".cocoapods
             ];
+            utils = {
+              mkConfigPath = path: ./.config + path;
+            };
           };
         };
     };
