@@ -35,6 +35,11 @@ in
     ripgrep
   ] ++ specialArgs.extraPackages;
 
+  programs.java = with specialArgs.nixpkgs.${specialArgs.majorVersion};{
+    enable = true;
+    package = jdk17;
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
