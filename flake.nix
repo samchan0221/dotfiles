@@ -27,23 +27,30 @@
     {
       homeConfigurations.linux =
         let
+          system = "x86_64-linux";
           overlays = [ (import rust-overlay) ];
-          pkgs = import nixpkgs
-            {
-              system = "x86_64-linux";
-              inherit overlays;
-            };
+          nixpkgs = {
+            "23.05" = nixpkgs-2305.legacyPackages.${system};
+            "22.11" = nixpkgs-2211.legacyPackages.${system};
+            unstable = nixpkgs-unstable.legacyPackages.${system};
+          };
         in
         home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          pkgs = nixpkgs."23.05"; # pkgs for home-manager itself (mainly std-env)
 
           modules = [
             ./nix/home-manager
           ];
 
           extraSpecialArgs = {
+            inherit nixpkgs;
             username = "sam_chan";
             homeDirectory = "/home/sam_chan";
+            majorVersion = "23.05";
+            extraPackages = [ ];
+            utils = {
+              mkConfigPath = path: ./.config + path;
+            };
           };
         };
 

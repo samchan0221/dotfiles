@@ -16,4 +16,4 @@ build:
 	nix build --no-link --experimental-features 'nix-command flakes' .#homeConfigurations.$(UNAME).activationPackage 
 
 switch:
-	$(shell nix path-info --refresh .#homeConfigurations.darwin.activationPackage)/activate
+	$(shell nix path-info --refresh .#homeConfigurations.$(UNAME).activationPackage)/activate
