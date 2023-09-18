@@ -33,6 +33,8 @@ null_ls.setup {
     null_ls.builtins.formatting.prettierd,
     has_eslint_config and null_ls.builtins.diagnostics.eslint_d,
     has_eslint_config and null_ls.builtins.code_actions.eslint_d,
+    --- clang
+    null_ls.builtins.formatting.clang_format,
   }
 }
 
@@ -131,10 +133,17 @@ nvim_lsp.terraformls.setup {
   on_attach = on_attach_default,
 }
 
+nvim_lsp.clangd.setup {
+  capabilities = default_capabilities,
+  on_attach = function(client, bufnr)
+    on_attach_default(client, bufnr)
+  end,
+}
+
 -- format on save
 vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.ts,*.tsx,*.lua,*.rs,*.json,*.yaml,*.yml,*.cs,*.nix,*.js lua vim.lsp.buf.format({}, 5000)
+  autocmd BufWritePost *.ts,*.tsx,*.lua,*.rs,*.json,*.yaml,*.yml,*.cs,*.nix,*.js,*.cpp,*.h lua vim.lsp.buf.format({}, 5000)
 augroup END
 ]], true)

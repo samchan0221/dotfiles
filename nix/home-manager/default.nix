@@ -31,6 +31,7 @@ in
     deno
     poetry
     clang
+    clang-tools
     lld
     ripgrep
   ] ++ specialArgs.extraPackages;
