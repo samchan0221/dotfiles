@@ -1,6 +1,5 @@
 -- init autocmd
 vim.cmd('autocmd!')
--- set script encoding
 -- stop loading config if it's on tiny or small
 vim.cmd('if !1 | finish | endif')
 
@@ -10,7 +9,7 @@ vim.opt.ff = 'unix'
 vim.opt.encoding = 'utf-8'
 vim.opt.title = true
 vim.opt.autoindent = true
-vim.opt.background = 'dark'
+-- vim.opt.background = 'dark'
 vim.opt.hlsearch = true
 vim.opt.showcmd = true
 vim.opt.cmdheight = 1
@@ -28,7 +27,8 @@ vim.cmd('set t_Co=256')
 vim.cmd('set t_BE=')
 vim.cmd('set hidden')
 
-vim.cmd('set nosc noru nosm')
+vim.cmd('set noswapfile')
+vim.cmd('set noruler')
 -- Don't redraw while executing macros (good performance config)
 vim.cmd('set lazyredraw')
 vim.cmd('set showmatch')
@@ -36,6 +36,8 @@ vim.cmd('set showmatch')
 vim.cmd('set mat=2')
 -- Ignore case when searching
 vim.cmd('set ignorecase')
+-- Dpn't ignore case when searching contains uppercase
+vim.cmd('set smartcase')
 -- Be smart when using tabs ;)
 vim.cmd('set smarttab')
 -- indents
