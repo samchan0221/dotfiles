@@ -34,6 +34,7 @@ in
     clang-tools
     lld
     ripgrep
+    lldb
   ] ++ specialArgs.extraPackages;
 
   programs.java = with specialArgs.nixpkgs.${specialArgs.majorVersion};{
