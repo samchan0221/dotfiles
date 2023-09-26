@@ -87,8 +87,9 @@ in
       vim-vsnip
       nvim-cmp
 
-      # magic
-      copilot-vim
+      # debugging
+      nvim-dap
+      nvim-dap-ui
 
       # misc
       lualine-nvim
