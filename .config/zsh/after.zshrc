@@ -6,7 +6,3 @@ if [[ -z "${IN_NIX_SHELL}" ]]; then
 else
   PS1="[in-nix] $PS1"
 fi
-
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi

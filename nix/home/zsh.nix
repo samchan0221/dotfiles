@@ -1,12 +1,10 @@
-{ specialArgs, ... }:
-with specialArgs.utils;
+{ ... }:
 {
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
-    initExtraFirst = builtins.readFile (mkConfigPath /zsh/before.zshrc);
-    initExtra = builtins.readFile (mkConfigPath /zsh/after.zshrc);
+    initExtra = builtins.readFile ../../.config/zsh/after.zshrc;
   };
   programs.zsh.oh-my-zsh = {
     enable = true;
@@ -20,5 +18,8 @@ with specialArgs.utils;
       "vi-mode"
     ];
     theme = "afowler";
+  };
+  home.shellAliases = {
+    lag = "lazygit";
   };
 }
