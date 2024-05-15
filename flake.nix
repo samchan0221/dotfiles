@@ -22,7 +22,6 @@
     , ...
     }:
     let
-      nixpkgs-2305 = nixpkgs;
       username = "samchan";
       defaultGitUsername = "samchan0221";
       defaultGitEmail = "samchan0221@gmail.com";
