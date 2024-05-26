@@ -17,6 +17,9 @@
         };
       }
     ];
+    sessionVariables = {
+      LANG = "en_US@UTF-8";
+    };
   };
   programs.zsh.oh-my-zsh = {
     enable = true;
