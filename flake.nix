@@ -38,6 +38,7 @@
         inherit system specialArgs;
         modules = [
           ./nix/modules/nix-core.nix
+          ./nix/modules/apps.nix
           # home manager
           home-manager.darwinModules.home-manager
           {

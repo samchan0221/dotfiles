@@ -6,3 +6,7 @@ if [[ -z "${IN_NIX_SHELL}" ]]; then
 else
   PS1="[in-nix] $PS1"
 fi
+
+if [[ $(uname -m) == 'arm64' ]]; then
+   eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
