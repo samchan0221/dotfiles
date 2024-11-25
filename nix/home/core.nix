@@ -18,6 +18,7 @@
     tmux
     ripgrep
     lldb
+    colima
 
     # lsp
     rnix-lsp
@@ -27,6 +28,7 @@
     lua-language-server
     marksman
     gopls
+    pyright
 
     # formatter
     nodePackages_latest.prettier
