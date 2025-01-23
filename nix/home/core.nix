@@ -9,7 +9,6 @@
     clang
     clang-tools
     lld
-    nodejs_21
 
     # tools
     jq
@@ -21,7 +20,7 @@
     colima
 
     # lsp
-    rnix-lsp
+    nil
     terraform-ls
     haskellPackages.haskell-language-server
     nodePackages_latest.typescript-language-server
