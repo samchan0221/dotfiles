@@ -1,0 +1,6 @@
+{
+  username = "";
+  homeDirectory = "";
+  defaultGitUserName = "";
+  defaultGitEmail = "";
+}
