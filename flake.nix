@@ -16,37 +16,27 @@
   };
 
   outputs =
-    inputs @ { nixpkgs
-    , home-manager
-    , darwin
-    , ...
-    }:
-    let
-      username = "samchan";
-      defaultGitUsername = "samchan0221";
-      defaultGitEmail = "samchan0221@gmail.com";
-      system = "aarch64-darwin";
-      hostname = "${username}-macbook";
-      specialArgs =
-        inputs
-        // {
-          inherit username hostname defaultGitUsername defaultGitEmail;
-        };
+    inputs:
+    let local = import ./.env.nix;
     in
     {
-      darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {
-        inherit system specialArgs;
+      darwinConfigurations.normal = inputs.darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
         modules = [
           ./nix/modules/nix-core.nix
           ./nix/modules/apps.nix
           # home manager
-          home-manager.darwinModules.home-manager
+          inputs.home-manager.darwinModules.home-manager
           {
-            users.users.${username}.home = "/Users/${username}";
+            users.users.${local.username}.home = local.homeDirectory;
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = specialArgs;
-            home-manager.users.${username} = import ./nix/home;
+            home-manager.extraSpecialArgs = inputs // {
+              defaultGitUsername = local.defaultGitUserName;
+              defaultGitEmail = local.defaultGitEmail;
+              username = local.username;
+            };
+            home-manager.users.${local.username} = import ./nix/home;
           }
         ];
       };
