@@ -13,6 +13,10 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -35,6 +39,7 @@
               defaultGitUsername = local.defaultGitUserName;
               defaultGitEmail = local.defaultGitEmail;
               username = local.username;
+              nvfModule = inputs.nvf.homeManagerModules.default;
             };
             home-manager.users.${local.username} = import ./nix/home;
           }

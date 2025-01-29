@@ -6,9 +6,7 @@
     python311
     deno
     poetry
-    clang
-    clang-tools
-    lld
+    clang clang-tools lld
 
     # tools
     jq
@@ -38,10 +36,14 @@
   ];
 
   programs = {
-    neovim = {
+    nvf = {
       enable = true;
-      defaultEditor = true;
+      settings = import ../nvf/settings;
     };
+    # neovim = {
+    #   enable = true;
+    #   defaultEditor = true;
+    # };
     direnv = {
       enable = true;
       enableZshIntegration = true;

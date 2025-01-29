@@ -1,8 +1,9 @@
-{ username, ... }:
+{ username, nvfModule, ... }:
 
 {
   # import sub modules
   imports = [
+    nvfModule
     ./core.nix
     ./zsh.nix
     ./lazygit.nix
