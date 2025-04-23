@@ -18,6 +18,7 @@
     colima
     kubectl
     neovim
+    kubernetes-helm
 
     # lsp
     nil
