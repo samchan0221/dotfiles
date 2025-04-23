@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # lang
     python311
@@ -21,31 +19,31 @@
     kubectl
     kubernetes-helm
 
-    # lsp
-    nil
-    terraform-ls
-    haskellPackages.haskell-language-server
-    nodePackages_latest.typescript-language-server
-    lua-language-server
-    marksman
-    gopls
-    pyright
+    # # lsp (commented after using nvf)
+    # nil
+    # terraform-ls
+    # haskellPackages.haskell-language-server
+    # nodePackages_latest.typescript-language-server
+    # lua-language-server
+    # marksman
+    # gopls
+    # pyright
 
-    # formatter
-    nodePackages_latest.prettier
-    nixpkgs-fmt
-    shfmt
-    stylua
-    yamlfmt
+    # # formatter (commented after using nvf)
+    # nodePackages_latest.prettier
+    # nixpkgs-fmt
+    # shfmt
+    # stylua
+    # yamlfmt
   ];
 
   programs = {
     nvf = {
-      enable = false;
+      enable = true;
       settings = import ../nvf/settings;
     };
     neovim = {
-      enable = true;
+      enable = false;
       defaultEditor = true;
     };
     direnv = {

@@ -3,6 +3,7 @@
   vim.vimAlias = false;
   vim.globals.mapleader = "\\";
   vim.lazy.enable = true;
+  vim.useSystemClipboard = true;
 
   vim.options = {
     tabstop = 2;
