@@ -6,7 +6,9 @@
     python311
     deno
     poetry
-    clang clang-tools lld
+    clang
+    clang-tools
+    lld
 
     # tools
     jq
