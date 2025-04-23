@@ -19,7 +19,6 @@
     lldb
     colima
     kubectl
-    neovim
     kubernetes-helm
 
     # lsp
@@ -45,10 +44,10 @@
       enable = false;
       settings = import ../nvf/settings;
     };
-    # neovim = {
-    #   enable = true;
-    #   defaultEditor = true;
-    # };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
     direnv = {
       enable = true;
       enableZshIntegration = true;
