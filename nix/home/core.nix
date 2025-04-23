@@ -16,6 +16,8 @@
     ripgrep
     lldb
     colima
+    kubectl
+    neovim
 
     # lsp
     nil
@@ -37,7 +39,7 @@
 
   programs = {
     nvf = {
-      enable = true;
+      enable = false;
       settings = import ../nvf/settings;
     };
     # neovim = {
